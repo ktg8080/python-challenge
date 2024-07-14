@@ -4,6 +4,7 @@ import csv
 # Path to the CSV file
 bank_csv = os.path.join("/Users/kylegoodwin/python_folder/python-challenge/PyBank/Resources/budget_data.csv")
 
+# Set Variable and lists
 total_months = 0
 total_pl = 0
 previous_pl= 0
@@ -32,6 +33,7 @@ with open(bank_csv, newline='') as csvfile:
         pl = int(row[1])
         total_pl += pl
 
+        # Average profit/loss
         if previous_pl != 0:
             changes_pl = pl - previous_pl
             changes_list.append(changes_pl)
@@ -42,21 +44,40 @@ with open(bank_csv, newline='') as csvfile:
 
     average = total_change / total_months
 
+    # Greatest Increase
     great_inc = max(changes_list)
     great_inc_month = months[changes_list.index(great_inc)]
 
+    # Greates Decrease
     great_dec = min(changes_list)
     great_dec_month = months[changes_list.index(great_dec)]
 
             
 
+    print("Financial Analysis")
 
+    print("----------------------------")
 
-    print (f"Total Months: {total_months}")
+    print(f"Total Months: {total_months}")
     print(f"Total is ${total_pl}")
     print(f'Average Change: ${average:.2f}')
-    print(f'Greatest Increase in Profits: {great_inc_month} (${great_inc})')
+    print(f'Greatest Increase in Profits: {great_inc_month} (${great_inc})')   
     print(f'Greatest Decrease in Profits: {great_dec_month} (${great_dec})')
+
+
+output_file = os.path.join('analysis', 'pyBank_output.txt')
+
+with open(output_file, "w") as f:
+    print("Financial Analysis", file=f)
+
+    print("----------------------------", file=f)
+
+    print(f"Total Months: {total_months}", file=f)
+    print(f"Total is ${total_pl}")
+    print(f'Average Change: ${average:.2f}', file=f)
+    print(f'Greatest Increase in Profits: {great_inc_month} (${great_inc})', file=f)   
+    print(f'Greatest Decrease in Profits: {great_dec_month} (${great_dec})', file=f)
+
 
 
 
