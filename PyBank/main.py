@@ -2,7 +2,7 @@ import os
 import csv
 
 # Path to the CSV file
-bank_csv = os.path.join("/Users/kylegoodwin/python_folder/python-challenge/PyBank/Resources/budget_data.csv")
+bank_csv = os.path.join("Resources", "budget_data.csv")
 
 # Set Variable and lists
 total_months = 0
@@ -42,7 +42,7 @@ with open(bank_csv, newline='') as csvfile:
 
         previous_pl = pl
 
-    average = total_change / total_months
+    average = total_change / (total_months - 1)
 
     # Greatest Increase
     great_inc = max(changes_list)
@@ -64,6 +64,7 @@ with open(bank_csv, newline='') as csvfile:
     print(f'Greatest Increase in Profits: {great_inc_month} (${great_inc})')   
     print(f'Greatest Decrease in Profits: {great_dec_month} (${great_dec})')
 
+# Outputs the results in a .txt file in the analysis folder
 
 output_file = os.path.join('analysis', 'pyBank_output.txt')
 
