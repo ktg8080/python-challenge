@@ -28,5 +28,5 @@ PyPoll - A python script to analyze the voter results from the election_data.csv
 The output is generated to the terminal and a .txt file located in the analysis folder. 
 
 
-Credits: The script was created using the class work files. 
+Credits: The script was created using the class work files. I received help on Line 45 of the PyBank code from tutor Brandon Wong. The code to generate the output as a .txt file was created using help from https://www.youtube.com/watch?v=C0VZxhHsEvM 
 
